@@ -2,6 +2,10 @@ reprepro Cookbook CHANGELOG
 ===========================
 This file is used to list changes made in each version of the reprepro cookbook.
 
+v0.4.4
+------
+- Directory create fix because incoming property is no longer a string
+
 v0.4.3
 ------
 - Directory create fix because incoming property is no longer a string

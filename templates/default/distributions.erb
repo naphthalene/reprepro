@@ -3,7 +3,7 @@ Origin: <%= distr['origin'] ? distr['origin'] : @origin %>
 Label: <%= distr['label'] ? distr['label'] : @label %>
 Codename: <%= distr['codename'] %>
 Architectures: <%= distr['architectures'].join(" ") %>
-Components: <%= distr['component'].join(" ") %>
+Components: <%= distr['components'].join(" ") %>
 Description: <%= node['reprepro']['description'] %>
 SignWith: <%= node['reprepro']['pgp_email'] %>
 <% end -%>
