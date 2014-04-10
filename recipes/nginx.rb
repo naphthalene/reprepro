@@ -36,5 +36,5 @@ end
 nginx_site "apt_repo"
 
 nginx_site "default" do
-  enable false
+  action :disable
 end

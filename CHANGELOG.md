@@ -2,6 +2,10 @@ reprepro Cookbook CHANGELOG
 ===========================
 This file is used to list changes made in each version of the reprepro cookbook.
 
+v0.4.2
+------
+- Fix nginx default site disabling
+
 v0.4.1
 ------
 - Allow option to use nginx (thanks [gilles](https://github.com/gilles))
