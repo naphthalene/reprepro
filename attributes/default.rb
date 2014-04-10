@@ -19,3 +19,5 @@ default['reprepro']['nginx']['ssl_certificate'] = "#{node['nginx']['dir']}/ssl/#
 default['reprepro']['nginx']['ssl_certificate_key'] = "#{node['nginx']['dir']}/ssl/#{node['reprepro']['fqdn']}.key"
 
 default['reprepro']['server'] = 'apache'
+
+default['reprepro']['upload'] = {'base_dir' => '/srv/apt/upload'}
