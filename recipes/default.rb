@@ -49,7 +49,7 @@ end
   package pkg
 end
 
-[ node['reprepro']['repo_dir'], node['reprepro']['incoming'] ].each do |dir|
+[ node['reprepro']['repo_dir'], node['reprepro']['incoming'].values ].flatten.each do |dir|
   directory dir do
     owner "nobody"
     group "nogroup"
