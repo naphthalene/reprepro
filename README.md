@@ -39,36 +39,35 @@ from the data bag. The following attributes are used, in the
 
 Data Bag based repository
 -------------------------
-
+## TODO update me
 Create a data bag to store the repository information. It should be
 named `reprepro`. The recipe uses the `main` data bag item.
 
-    {
-      "id": "main",
-      "fqdn": "apt.example.com",
-      "repo_dir": "/srv/apt",
-      "incoming": "/srv/apt_incoming",
-      "description": "APT Repository for our packages.",
-      "codenames": [
-        "lucid", "hardy", "sid", "squeeze", "lenny"
-      ],
-      "allow": [
-        "unstable>sid", "stable>squeeze"
-      ],
-      "pgp": {
-        "email": "packages@example.com",
-        "fingerprint": "PGP Fingerprint for the key",
-        "public": "-----BEGIN PGP PUBLIC KEY BLOCK-----\n-----END PGP PUBLIC KEY BLOCK-----\n",
-        "private": "-----BEGIN PGP PRIVATE KEY BLOCK-----\n-----END PGP PRIVATE KEY BLOCK-----\n"
+     {
+      "id" : "main",
+      "fqdn":"debian.acme.com",
+      "label":"ACME",
+      "origin":"ACME Debian"
+      "description": "Debian repository",
+      "repo_dir": "/srv/reprepro/zenexity-repo/",
+      "incoming": "/srv/reprepro/zenexity-incoming/",
+      "pgp" : {
+        "email": "packages@acme.com",
+        "public": "",
       },
-      "pulls": {
+      "codenames" : [
+          { "codename": "squeeze",
+            "suite":"stable",
+            "aliases":["squeeze-security"],
+            "components": ["main", "security"]},
+        {"codename": "wheezy", "suite":"testing", "aliases":[]}, 
+        {"codename": "sid", "suite":"unstable", "aliases":[]}],
+      "architectures" : ["source", "i386", "amd64" ],
+      "pulls" : {
+        "component":"main",
         "name": "sid",
-        "from": "sid",
-        "component": "main"
-      },
-      "architectures": [
-        "amd64","i386","all","source"
-      ]
+        "from": "sid"
+      }
     }
 
 * `fqdn`: the fully qualified domain name of the apt server, used in

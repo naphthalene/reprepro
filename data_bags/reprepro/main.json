@@ -5,6 +5,15 @@
   "incoming": "/srv/apt_incoming",
   "description": "APT Repository for our packages.",
   "codenames": [
+    {"codename": "squeeze",
+     "suite":"stable",
+     "aliases":["squeeze-security"]},
+    {"codename": "wheezy",
+     "suite":"testing", "aliases":[]},
+    {"codename": "sid",
+     "suite":"unstable",
+     "aliases":[]},
+  ]
     "lucid", "hardy", "sid", "squeeze", "lenny"
   ],
   "allow": [

@@ -44,6 +44,7 @@ ruby_block "save node data" do
   not_if { ::Chef::Config[:solo] }
 end
 
+## TODO add gpg utils?
 %w{apt-utils dpkg-dev reprepro debian-keyring devscripts dput}.each do |pkg|
   package pkg
 end
@@ -65,18 +66,20 @@ end
   end
 end
 
-%w{ distributions incoming pulls }.each do |conf|
+## TODO redo pulls
+%w{ distributions incoming }.each do |conf|
   template "#{node['reprepro']['repo_dir']}/conf/#{conf}" do
     source "#{conf}.erb"
     mode "0644"
     owner "nobody"
     group "nogroup"
     variables(
+      :label => node['reprepro']['label'],
+      :label => node['reprepro']['origin'],
       :allow => node['reprepro']['allow'],
       :codenames => node['reprepro']['codenames'],
-      :architectures => node['reprepro']['architectures'],
       :incoming => node['reprepro']['incoming'],
-      :pulls => node['reprepro']['pulls']
+      # :pulls => node['reprepro']['pulls']
     )
   end
 end
