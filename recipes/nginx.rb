@@ -27,9 +27,6 @@ template "#{node[:nginx][:dir]}/sites-available/apt_repo" do
   mode 0644
   owner "root"
   group "root"
-  variables(
-      :repo_dir => node['reprepro']['repo_dir']
-  )
   notifies :reload, resources(:service => 'nginx')
 end
 

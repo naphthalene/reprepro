@@ -9,17 +9,13 @@ server {
   access_log /var/log/nginx/apt-access.log;
   error_log /var/log/nginx/apt-error.log;
 
-  location / {
-    root <%= @repo_dir %>;
+  location ^~ /<%= node['reprepro']['distribution'] %> {
+    alias <%= node['reprepro']['repo_dir'] %>;
+    expires 0;
+    add_header Cache-Control private;
+    location ~ /(.*)/conf {deny all;}
+    location ~ /(.*)/db {deny all;}
     autoindex  on;
-  }
-
-  location ~ /(.*)/conf {
-    deny all;
-  }
-
-  location ~ /(.*)/db {
-    deny all;
   }
 }
 
@@ -34,17 +30,13 @@ server {
   ssl_certificate <%= node['nginx']['ssl_certificate'] %>;
   ssl_certificate_key <%= node['nginx']['ssl_certificate_key'] %>;
 
-  location / {
-    root <%= @repo_dir %>;
+  location ^~ /<%= node['reprepro']['distribution'] %> {
+    alias <%= node['reprepro']['repo_dir'] %>;
+    expires 0;
+    add_header Cache-Control private;
+    location ~ /(.*)/conf {deny all;}
+    location ~ /(.*)/db {deny all;}
     autoindex  on;
   }
-
-  location ~ /(.*)/conf {
-    deny all;
-  }
-
-  location ~ /(.*)/db {
-    deny all;
-    }
 }
 <% end -%>

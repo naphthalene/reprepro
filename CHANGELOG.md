@@ -2,9 +2,17 @@ reprepro Cookbook CHANGELOG
 ===========================
 This file is used to list changes made in each version of the reprepro cookbook.
 
+v0.4.5
+------
+- Adds upload directory configuration to data bag
+- Adds distribution option to data bag. This is used to create the
+  correct nginx configuration
+- Changes the way nginx is configured. Uses rewrites and changes
+  default location to /ubuntu
+
 v0.4.4
 ------
-- Directory create fix because incoming property is no longer a string
+- Fixed typo
 
 v0.4.3
 ------
@@ -21,12 +29,14 @@ v0.4.1
 v0.4.0
 ------
 ### Bug
-- **[COOK-3545](https://tickets.opscode.com/browse/COOK-3545)** - Support multiple distribution releases
+- **[COOK-3545](https://tickets.opscode.com/browse/COOK-3545)** -
+  Support multiple distribution releases
 
 
 v0.3.0
 ------
-* [COOK-2111] - Add LWRP for reprepro interactions. Allow attribute driven configuration
+* [COOK-2111] - Add LWRP for reprepro interactions. Allow attribute
+  driven configuration
 
 v0.2.4
 ------

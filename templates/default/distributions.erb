@@ -1,9 +1,10 @@
 <% @codenames.each do |distr| -%>
-Origin: <%= distr['origin'] ? distr['origin'] : @origin %>
-Label: <%= distr['label'] ? distr['label'] : @label %>
+Origin: <%= distr['origin'] || @origin %>
+Label: <%= distr['label'] || @label %>
 Codename: <%= distr['codename'] %>
 Architectures: <%= distr['architectures'].join(" ") %>
 Components: <%= distr['components'].join(" ") %>
 Description: <%= node['reprepro']['description'] %>
 SignWith: <%= node['reprepro']['pgp_email'] %>
+
 <% end -%>
