@@ -4,6 +4,10 @@ This file is used to list changes made in each version of the reprepro cookbook.
 
 v0.4.6
 ------
+- Adding attribute for distribution to get picked up from data bag
+
+v0.4.6
+------
 - Adding attribute for upload settings so it gets picked up from data bag
 
 v0.4.5
